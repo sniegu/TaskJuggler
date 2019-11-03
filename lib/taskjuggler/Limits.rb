@@ -189,6 +189,12 @@ class TaskJuggler
       iv.start = iv.startDate.midnight
       iv.end = iv.endDate.midnight
       case name
+      when 'hourlymax'
+        period = 60 * 60
+        upper = true
+      when 'hourlymin'
+        period = 60 * 60
+        upper = false
       when 'dailymax'
         period = 60 * 60 * 24
         upper = true

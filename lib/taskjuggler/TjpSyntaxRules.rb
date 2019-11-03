@@ -2454,6 +2454,26 @@ EOT
     optional
     repeatable
 
+    pattern(%w( _hourlymax !limitValue !limitAttributes), lambda {
+      setLimit(@val[0], @val[1], @limitInterval)
+    })
+    doc('hourlymax', <<'EOT'
+Set a maximum limit for each hour.
+EOT
+       )
+    example('Limits-1', '1')
+
+    pattern(%w( _hourlymin !limitValue !limitAttributes), lambda {
+      setLimit(@val[0], @val[1], @limitInterval)
+    })
+    doc('hourlymin', <<'EOT'
+Minimum required effort for any hour. This value cannot be guaranteed by
+the scheduler. It is only checked after the schedule is complete. In case the
+minium required amount has not been reached, a warning will be generated.
+EOT
+       )
+    example('Limits-1', '4')
+
     pattern(%w( _dailymax !limitValue !limitAttributes), lambda {
       setLimit(@val[0], @val[1], @limitInterval)
     })
